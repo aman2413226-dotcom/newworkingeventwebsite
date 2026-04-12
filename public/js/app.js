@@ -131,7 +131,7 @@ async function handleRegister() {
 
   setBtn('regBtn', true, '');
 
- /* try {
+ try {
     const res = await fetch(`${API_BASE}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -151,9 +151,10 @@ async function handleRegister() {
     showMsg('regMsg', 'error', 'Could not reach the server. Please check your connection or contact info@nexus.com.');
   } finally {
     setBtn('regBtn', false, 'Register Now →');
+    document.querySelector('#registerBtn').innerText = 'Register'; /*if any error occurs remove this line */
   }
-}*/
-   try {
+}
+  /* try {
   const res = await fetch(`${API_BASE}/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -175,7 +176,7 @@ async function handleRegister() {
 } finally {
   // 🔥 THIS is what you're missing
   document.querySelector('#registerBtn').innerText = 'Register';
-}
+}*/
 
 /* =====================================================
    CONTACT FORM  →  POST /contact
