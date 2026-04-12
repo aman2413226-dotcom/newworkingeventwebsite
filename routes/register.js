@@ -5,10 +5,10 @@
 
 const express  = require('express');
 const router   = express.Router();
-const { readJSON, writeJSON, REGISTRATIONS_FILE } = require('../utils/dataStore');
-const { updateExcel }   = require('../utils/excelExport');
-const { sendMail }      = require('../utils/mailer');
-const { isCollegeEmail, TICKET_LABELS } = require('../utils/validators');
+const { readJSON, writeJSON, REGISTRATIONS_FILE } = require('../utils/dataStore.js');
+const { updateExcel }   = require('../utils/excelExport.js');
+const { sendMail }      = require('../utils/mailer.js');
+const { isCollegeEmail, TICKET_LABELS } = require('../utils/validators.js');
 
 /* POST /register */
 router.post('/', async (req, res) => {
