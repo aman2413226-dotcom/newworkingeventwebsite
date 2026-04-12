@@ -131,7 +131,7 @@ async function handleRegister() {
 
   setBtn('regBtn', true, '');
 
-  try {
+ /* try {
     const res = await fetch(`${API_BASE}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -152,6 +152,29 @@ async function handleRegister() {
   } finally {
     setBtn('regBtn', false, 'Register Now →');
   }
+}*/
+   try {
+  const res = await fetch(`${API_BASE}/register`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, college, year, ticket, phone }),
+  });
+
+  const data = await res.json();
+
+  if (data.success) {
+    showMsg('regMsg', 'success', data.message || 'Registration successful!');
+    clearFields(['regName', 'regEmail', 'regCollege', 'regYear', 'regTicket', 'regPhone']);
+  } else {
+    showMsg('regMsg', 'error', data.message || 'Something went wrong');
+  }
+
+} catch (err) {
+  console.error(err);
+  showMsg('regMsg', 'error', 'Server error. Try again.');
+} finally {
+  // 🔥 THIS is what you're missing
+  document.querySelector('#registerBtn').innerText = 'Register';
 }
 
 /* =====================================================
