@@ -569,6 +569,29 @@ img { max-width: 100%; }
 }
 
 /* ===== EVENT DETAILS ===== */
+/* Map container */
+.map-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image wrapper */
+.map-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Actual image */
+.map-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
 .event-details {
   padding: 100px 0;
   background: var(--bg2);
