@@ -25,12 +25,13 @@ app.use('/admin', require('./routes/admin'));
   if (path.extname(req.path)) {
     return next();
   }*/
+/* ── Catch-all (IMPORTANT FIX) ── */
 app.get('*', (req, res, next) => {
+  // If it's a file request (.js, .css, .png, etc), don't send index.html
   if (path.extname(req.path)) return next();
+  
+  // Send the index.html from the public folder
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 /* ── Export for Vercel ── */
