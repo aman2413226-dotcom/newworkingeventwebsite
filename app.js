@@ -5,7 +5,7 @@
 ===================================================== */
 
 /* ── Backend base URL ── */
-const API_BASE = window.location.origin; // same origin as the server
+const API_BASE = 'http://localhost:3001';
 
 /* =====================================================
    NAVBAR SCROLL
