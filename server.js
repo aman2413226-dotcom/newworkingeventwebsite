@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const cors    = require('cors');
-const path    = require('path');
+const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -10,19 +10,21 @@ app.use(cors());
 app.use(express.json());
 
 /* ── Serve static files ── */
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 /* ── API Routes ── */
-app.use('/register',  require('./routes/register'));
-app.use('/contact',   require('./routes/contact'));
+app.use('/register', require('./routes/register'));
+app.use('/contact', require('./routes/contact'));
 app.use('/subscribe', require('./routes/subscribe'));
-app.use('/admin',     require('./routes/admin'));
+app.use('/admin', require('./routes/admin'));
 
-/* ── Catch-all (avoid breaking JS/CSS) ── */
-app.get('*', (req, res) => {
-  if (req.path.startsWith('/js') || req.path.startsWith('/css')) {
-    return res.status(404).end();
+/* ── Catch-all (IMPORTANT FIX) ── */
+app.get('*', (req, res, next) => {
+  // If it's a file request (.js, .css, .png, etc), don't send index.html
+  if (path.extname(req.path)) {
+    return next();
   }
+
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
