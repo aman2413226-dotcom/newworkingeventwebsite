@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.json());
 
 /* ── Serve frontend from /public ── */
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 /* ── Routes ── */
 app.use('/register',  require('./routes/register'));
@@ -37,9 +37,8 @@ app.use('/admin',     require('./routes/admin'));
 
 /* ── Catch-all: serve index.html for SPA-style navigation ── */
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
-
 /* ── Start ── */
 /*const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
