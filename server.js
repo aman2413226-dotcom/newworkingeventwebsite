@@ -41,7 +41,7 @@ app.get('*', (req, res) => {
 });
 
 /* ── Start ── */
-const PORT = process.env.PORT || 3001;
+/*const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`\n🚀  Next-Start Up Conclave backend running at http://localhost:${PORT}\n`);
   console.log('  POST /register              – Student registration');
@@ -50,4 +50,5 @@ app.listen(PORT, () => {
   console.log('  GET  /admin/stats           – Dashboard stats      [X-Admin-Key]');
   console.log('  GET  /admin/download-excel  – Download Excel       [X-Admin-Key]');
   console.log('  POST /admin/notify          – Notify subscribers   [X-Admin-Key]\n');
-});
+});*/
+module.exports = app;
