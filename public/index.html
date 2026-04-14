@@ -304,7 +304,7 @@
           <h3>Secure Your Spot</h3>
           <p class="reg-sub">Use your college email to register. Only verified college emails accepted.</p>
           <div id="regMsg" class="form-msg hidden"></div>
-          <div class="reg-form">
+          <form class="reg-form" id="regForm">
             <div class="form-row">
               <input type="text" id="regName" placeholder="Full Name *" required>
             </div>
@@ -337,11 +337,11 @@
             <div class="form-row">
               <input type="tel" id="regPhone" placeholder="Phone Number (optional)">
             </div>
-            <button class="btn-primary full" id="regBtn" onclick="handleRegister()">
+            <button type="submit" class="btn-primary full" id="regBtn">
               Register Now →
             </button>
             <p class="form-note">* Required fields. Only .edu, .ac.in and verified college domains are accepted.</p>
-          </div>
+          </form>
         </div>
       </div>
     </div>
