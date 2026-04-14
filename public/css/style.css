@@ -579,19 +579,20 @@ img { max-width: 100%; }
 /* Image wrapper */
 .map-image {
   width: 100%;
-  max-width: 500px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  min-height: 300px; /* Give it a base height */
+  background: #f0f0f0; /* Show a background while loading */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Actual image */
 .map-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Ensures the map fills the area well */
   display: block;
-  object-fit: cover;
 }
+
 .event-details {
   padding: 100px 0;
   background: var(--bg2);
